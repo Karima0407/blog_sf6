@@ -26,13 +26,13 @@ class Article
     private ?string $image = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $createAt = null;
+    private ?\DateTimeInterface $createdAt = null;
 
-    #[ORM\ManyToMany(targetEntity: category::class, inversedBy: 'articles')]
+    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'articles')]
     private Collection $category;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
-    private ?user $user = null;
+    private ?User $user = null;
 
     public function __construct()
     {
@@ -80,14 +80,14 @@ class Article
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->createAt;
+        return $this->createdAt;
     }
 
-    public function setCreateAt(\DateTimeInterface $createAt): static
+    public function setCreatedAt(\DateTimeInterface $createAt): static
     {
-        $this->createAt = $createAt;
+        $this->createdAt = $createAt;
 
         return $this;
     }
