@@ -22,7 +22,7 @@ class HomeController extends AbstractController
     }
 
 
-    #[Route('/show {id}', name: 'show')]
+    #[Route('/show/{id}', name: 'show')]
     public function show( ArticleRepository $articleRepository ,$id): Response
     {
         // $articles = $articleRepository1->find();
