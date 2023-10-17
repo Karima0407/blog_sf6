@@ -1,32 +1,32 @@
-{% extends 'base.html.twig' %} 
-{% block title %}Hello HomeController! {% endblock %}
-
- {% block body %}
-
-{# <div class="d-flex flex-wrap w-75 m-auto justify-content-center">
+{% extends 'base.html.twig' %} {% block title %}Hello HomeController! {%
+endblock %} {% block body %} {#
+<div class="d-flex flex-wrap w-75 m-auto justify-content-center">
   {% for article in articles %}
-<div class="card ms-3" style="width: 18rem">
-  <img src="{{article.image}}" class="card-img-top" alt="..." />
+  <div class="card ms-3" style="width: 18rem">
+    <img src="{{ article.image }}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ article.title }}</h5>
+      <p>{{ article.content }}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+#}
+
+<div class="card col-md-4" style="width: 18rem">
+  <p class="date">{{ article.createdAt | date("d/m/y")}}</p>
+  <img
+    src="{{asset ('/img/article/'~ article.image) }}"
+    class="card-img-top"
+    alt="{{ article.title }}"
+  />
   <div class="card-body">
     <h5 class="card-title">{{ article.title }}</h5>
-    <p>{{article.content}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 
-
-
-
-{% endfor %}</div> #}
-
-        <div class="card col-md-4" style="width: 18rem;">
-            <p class="date">{{ article.createdAt | date("d/m/y")}}</p>
-            <img src="{{asset ('/img/article/'~ article.image) }}" class="card-img-top" alt="{{ article.title }}">
-            <div class="card-body">
-              <h5 class="card-title"> {{article.title }}</h5>
-              
-            </div>
-          </div>
 
 
 {% endblock %}
